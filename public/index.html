@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <title>Tailwind CSS Message Component</title>
+  <style>
+    /* Adicione estilos adicionais aqui, se necessário */
+    .message-container {
+      display: none;
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      animation: slideIn 0.5s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="message-container bg-green-500 text-white p-4 rounded shadow-md">
+  <div class="flex items-center">
+    <div class="mr-2">
+      <!-- Ícone (substitua pelo ícone desejado) -->
+      <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+           xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 13l4 4L19 7"></path>
+      </svg> -->
+    </div>
+    <!-- Conteúdo da mensagem -->
+    <div>
+      <p class="font-bold">Mensagem de Sucesso</p>
+      <p>Sua mensagem foi enviada com sucesso!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Botão de Exemplo para Mostrar a Mensagem -->
+<button onclick="showMessage()" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Mostrar Mensagem</button>
+
+<script>
+  // Função para mostrar a mensagem
+  function showMessage() {
+    const messageContainer = document.querySelector('.message-container');
+    messageContainer.style.display = 'block';
+
+    // Oculta a mensagem após 5 segundos (ajuste conforme necessário)
+    setTimeout(() => {
+      messageContainer.style.display = 'none';
+    }, 5000);
+  }
+</script>
+
+</body>
+</html>
